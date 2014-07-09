@@ -21,7 +21,6 @@ MainWindow::~MainWindow()
 void MainWindow::on_ActMedInput_triggered()
 {
     QMessageBox::about(this,"Hello","Hello , let's go get it work!");
-    this->hide();
-    WndMedicRecord mr;
-    mr.show();
+    WndMedicRecord *pMr = new WndMedicRecord(this);
+    pMr->show();
 }

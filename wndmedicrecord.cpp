@@ -17,5 +17,6 @@ WndMedicRecord::~WndMedicRecord()
 void WndMedicRecord::on_buttonBox_accepted()
 {
     QMessageBox::about(this,"Accept","Accept and close");
-    this->close();
+
+
 }
