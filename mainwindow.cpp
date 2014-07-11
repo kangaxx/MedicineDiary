@@ -27,8 +27,16 @@ void MainWindow::on_ActMedInput_triggered()
     FSqlFactory *pTheSqlfct;
     basefunctions bf;
     Connections TheConn;
-    bf.GetSqlLink(QString("system.ini"),QString("waitForEdit"),TheConn);
-    QMessageBox::about(this,"Hello","Hello , let's go get it work!");
+    bf.GetSqlLink(QString("system.ini"),QString("MedecineType.xml"),TheConn);
+    SqlFunctions sql;
+    FSqlFactory *pSqlFct;
+
+
+    sql.Create(XML,TheConn,&pSqlFct);
+    if (!pSqlFct)
+        throw "still NULL PTR";
+
     WndMedicRecord *pMr = new WndMedicRecord(this,pTheSqlfct);
+    delete pSqlFct;
     pMr->show();
 }
