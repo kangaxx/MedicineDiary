@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui sql xml
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -14,12 +14,14 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    wndmedicrecord.cpp
+    wndmedicrecord.cpp \
+    basefunctions.cpp
 
 HEADERS  += mainwindow.h \
     wndmedicrecord.h \
     sqlfunctions.h \
-    comdefine.h
+    comdefine.h \
+    basefunctions.h
 
 FORMS    += mainwindow.ui \
     wndmedicrecord.ui

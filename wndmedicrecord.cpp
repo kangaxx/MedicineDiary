@@ -9,6 +9,14 @@ WndMedicRecord::WndMedicRecord(QWidget *parent) :
     ui->setupUi(this);
 }
 
+WndMedicRecord::WndMedicRecord(QWidget *parent, FSqlFactory *Sqlfct):
+    QDialog(parent),
+    m_pSqlfct(Sqlfct),
+    ui(new Ui::WndMedicRecord)
+{
+    ui->setupUi(this);
+}
+
 WndMedicRecord::~WndMedicRecord()
 {
     delete ui;
