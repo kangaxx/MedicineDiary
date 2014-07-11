@@ -3,6 +3,7 @@
 #include "qmessagebox.h"
 
 #include "wndmedicrecord.h" //药品入库
+#include "sqlfunctions.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),

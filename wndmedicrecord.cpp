@@ -1,7 +1,7 @@
 #include "wndmedicrecord.h"
 #include "ui_wndmedicrecord.h"
 #include "qmessagebox.h"
-
+#include "sqlfunctions.h"
 WndMedicRecord::WndMedicRecord(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::WndMedicRecord)

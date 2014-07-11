@@ -17,7 +17,11 @@ SOURCES += main.cpp\
     wndmedicrecord.cpp
 
 HEADERS  += mainwindow.h \
-    wndmedicrecord.h
+    wndmedicrecord.h \
+    sqlfunctions.h \
+    comdefine.h
 
 FORMS    += mainwindow.ui \
     wndmedicrecord.ui
+
+LIBS += $${PWD}/libSqlFunctions.a
