@@ -1,0 +1,31 @@
+    <database name="logs">
+        <table name="logs">
+            <promptys>
+                <prompty type="identity" value="id"/>
+            </promptys>
+            <record no="1">
+                <field name="ip" value="ip"/>
+                <field name="Cmd" value="Cmd"/>
+                <field name="pid" value="Pid"/>
+                <field name="result" value="Result"/>
+                <field name="time" value="Time"/>
+                <field name="id" value="3"/>
+            </record>
+            <record no="2">
+                <field name="ip" value="ip"/>
+                <field name="Cmd" value="Cmd"/>
+                <field name="pid" value="Pid"/>
+                <field name="result" value="Result"/>
+                <field name="time" value="Time"/>
+                <field name="id" value="2"/>
+            </record>
+            <record no="3">
+                <field name="ip" value="ip"/>
+                <field name="Cmd" value="Cmd"/>
+                <field name="pid" value="Pid"/>
+                <field name="result" value="Result"/>
+                <field name="time" value="Time"/>
+                <field name="id" value="4"/>
+            </record>
+        </table>
+    </database>
