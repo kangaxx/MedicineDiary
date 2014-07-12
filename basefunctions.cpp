@@ -1,5 +1,7 @@
 #include "basefunctions.h"
 #include <unistd.h>
+#include <QMessageBox>
+#include <string.h>
 
 basefunctions::basefunctions()
 {
@@ -8,10 +10,10 @@ basefunctions::basefunctions()
 
 void basefunctions::GetSqlLink(QString FileName, QString ConnName, Connections &Conn)
 {
-    QString IniFileName = basefunctions::GetExePath() + "/" + ConnName;
+
+    QString IniFileName = basefunctions::GetExePath() + QString("/") + FileName;
     QFile f;
     f.setFileName(IniFileName);
-
     if (!f.exists())
         throw "File not exists,pls check it!";
 
@@ -53,14 +55,17 @@ void basefunctions::GetSqlLink(QString FileName, QString ConnName, Connections &
 
 QString basefunctions::GetExePath()
 {
-    QString Ret;
+    QString Ret("");
     char buf[1024] = { 0 };
     int n;
 
     n = readlink("/proc/self/exe" , buf , sizeof(buf));
+    std::string t(buf);
+    t = t.substr(0,t.find_last_of('/'));
     if( n > 0 && n < sizeof(buf))
-        Ret = QString::fromLatin1(buf,n);
+        Ret = QString::fromStdString(t);
     else
         throw QString("Get program path error!");
+    return Ret;
 }
 

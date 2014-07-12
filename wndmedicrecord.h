@@ -21,9 +21,11 @@ public:
 private slots:
     void on_buttonBox_accepted();
 
+    void on_btnTest_clicked();
+
 private:
     Ui::WndMedicRecord *ui;
-    FSqlFactory *m_pSqlfct;
+    FSqlFactory *m_pSqlfct=0;
 };
 
 #endif // WNDMEDICRECORD_H

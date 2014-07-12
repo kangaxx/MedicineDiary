@@ -23,20 +23,29 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_ActMedInput_triggered()
 {
-    //just demo for sql
-    FSqlFactory *pTheSqlfct;
-    basefunctions bf;
-    Connections TheConn;
-    bf.GetSqlLink(QString("system.ini"),QString("MedecineType.xml"),TheConn);
-    SqlFunctions sql;
-    FSqlFactory *pSqlFct;
+    try
+    {
+        //just demo for sql
+        FSqlFactory *pTheSqlfct;
+        basefunctions bf;
+        Connections TheConn;
+        bf.GetSqlLink(QString("system.ini"),QString("MedicineType.xml"),TheConn);
+        SqlFunctions sql;
 
 
-    sql.Create(XML,TheConn,&pSqlFct);
-    if (!pSqlFct)
-        throw "still NULL PTR";
+        sql.Create(XML,TheConn,&pTheSqlfct);
+        if (!pTheSqlfct)
+            throw "still NULL PTR";
 
-    WndMedicRecord *pMr = new WndMedicRecord(this,pTheSqlfct);
-    delete pSqlFct;
-    pMr->show();
+        WndMedicRecord *pMr = new WndMedicRecord(this,pTheSqlfct);
+        pMr->show();
+    }
+    catch(QString exception)
+    {
+        QMessageBox::about(this,"Error",exception);
+    }
+    catch(const char* exception)
+    {
+        QMessageBox::about(this,"Error",exception);
+    }
 }

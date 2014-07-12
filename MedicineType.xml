@@ -1,0 +1,8 @@
+    <database name="Medicine">
+        <table name="MedicineType">
+            <promptys>
+                <prompty type="identity" value="id"/>
+            </promptys>
+            
+        </table>
+    </database>
