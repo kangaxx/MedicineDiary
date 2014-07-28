@@ -2,6 +2,7 @@
 #include <unistd.h>
 #include <QMessageBox>
 #include <string.h>
+#include "comdefine.h"
 
 basefunctions::basefunctions()
 {
@@ -11,7 +12,7 @@ basefunctions::basefunctions()
 void basefunctions::GetSqlLink(QString FileName, QString ConnName, Connections &Conn)
 {
 
-    QString IniFileName = basefunctions::GetExePath() + QString("/") + FileName;
+    QString IniFileName = STR_GET_EXECPATH + QString("/") + FileName;
     QFile f;
     f.setFileName(IniFileName);
     if (!f.exists())
@@ -53,9 +54,10 @@ void basefunctions::GetSqlLink(QString FileName, QString ConnName, Connections &
     Conn.ConnName = ConnName;
 }
 
-QString basefunctions::GetExePath()
+QString basefunctions::GetExePath_Linux()
 {
     QString Ret("");
+#ifdef liunx
     char buf[1024] = { 0 };
     int n;
 
@@ -66,6 +68,18 @@ QString basefunctions::GetExePath()
         Ret = QString::fromStdString(t);
     else
         throw QString("Get program path error!");
+#endif
+    return Ret;
+}
+
+QString basefunctions::GetExePath_Win32()
+{
+    QString Ret("");
+#ifdef WIN32
+    QDir TheDir;
+    Ret = TheDir.currentPath();
+
+#endif
     return Ret;
 }
 
