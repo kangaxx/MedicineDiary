@@ -12,7 +12,8 @@ public:
     basefunctions();
     void GetSqlLink(QString FileName, QString ConnName, Connections &Conn);
 private:
-    static QString GetExePath();
+    static QString GetExePath_Linux();
+    static QString GetExePath_Win32();
 };
 
 #endif // BASEFUNCTIONS_H
