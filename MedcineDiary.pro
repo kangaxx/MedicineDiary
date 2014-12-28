@@ -15,13 +15,19 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     wndmedicrecord.cpp \
-    basefunctions.cpp
+    basefunctions.cpp \
+    dndao.cpp \
+    dnmodel.cpp \
+    dnserver.cpp
 
 HEADERS  += mainwindow.h \
     wndmedicrecord.h \
     sqlfunctions.h \
     comdefine.h \
-    basefunctions.h
+    basefunctions.h \
+    dndao.h \
+    dnmodel.h \
+    dnserver.h
 
 FORMS    += mainwindow.ui \
     wndmedicrecord.ui
