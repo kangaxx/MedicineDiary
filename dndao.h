@@ -64,7 +64,7 @@ public:
     int GetColumnCount();
     QString GetStr(int r, int c);
     QVariant GetSpecValue(int r, int c);
-
+    void AddRecord(QList<QSqlRecord> &rcd);
 private:
     int PK;
     QString KeyName;

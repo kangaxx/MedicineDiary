@@ -114,6 +114,67 @@ DaoDrugType::DaoDrugType()
 
 DnInterfaceDao& DaoDrugType::operator=(DnInterfaceDao &right)
 {
-
+    if (this==&right)
+        return *this;
 }
+
+QStringList DaoDrugType::GetKeyName()
+{
+    QString result;
+    result << "DrugTypeId";
+    return result;
+}
+
+QStringList DaoDrugType::GetFieldNames()
+{
+    QStringList result;
+    result << "DrugTypeId" << "DrugName" << "UnitType";
+    return result;
+}
+
+int DaoDrugType::GetRowCount()
+{
+    return this->m_Data.size();
+}
+
+int DaoDrugType::GetColumnCount()
+{
+    return mc_ColumnCount;
+}
+
+QString DaoDrugType::GetStr(int r, int c)
+{
+    switch(c)
+    {
+    case 0:
+        return QString::number(m_Data[r].DrugTypeId);
+    case 1:
+        return m_Data[r].DrugName;
+    case 2:
+        return m_Data[r].UnitType;
+    default:
+        return QString("");
+        break;
+    }
+}
+
+QVariant DaoDrugType::GetSpecValue(int r, int c)
+{
+    Qt::CheckState t;
+    if (c==3) return QVariant(t);
+    else return QVariant();
+}
+
+void DaoDrugType::AddRecord(QList<QSqlRecord> &rcd)
+{
+    for(int i = 0;i<rcd.count();i++)
+    {
+        stc_DaoDrugType t;
+        t.DrugTypeId = rcd[i].field("DrugTypeId").value().toInt();
+        t.DrugName = rcd[i].field("DrugName").value().toString();
+        t.UnitType = rcd[i].field("UnitType").value().toString();
+        this->m_Data.push_back(t);
+    }
+}
+
 
