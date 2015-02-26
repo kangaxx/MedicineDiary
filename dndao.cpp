@@ -99,3 +99,21 @@ void DaoTableStudent::AddRecord(QList<QSqlRecord> &rcd)
 
 
 
+
+
+
+DaoDrugType::~DaoDrugType()
+{
+    //do nothing yet
+}
+
+DaoDrugType::DaoDrugType()
+{
+    //    do nothing yet
+}
+
+DnInterfaceDao& DaoDrugType::operator=(DnInterfaceDao &right)
+{
+
+}
+

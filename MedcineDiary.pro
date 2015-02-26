@@ -25,9 +25,9 @@ HEADERS  += mainwindow.h \
     sqlfunctions.h \
     comdefine.h \
     basefunctions.h \
-    dnserver.h \
+    dndao.h \
     dnmodel.h \
-    dndao.h
+    dnserver.h
 
 FORMS    += mainwindow.ui \
     wndmedicrecord.ui

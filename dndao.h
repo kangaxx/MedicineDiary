@@ -52,4 +52,29 @@ private:
     static const int mc_ColumnCount = 4;// Carefully!
 };
 
+class DaoDrugType:public DnInterfaceDao
+{
+public:
+    ~DaoDrugType();
+    DaoDrugType();
+    DnInterfaceDao& operator=(DnInterfaceDao& right);
+    QStringList GetKeyName();
+    QStringList GetFieldNames();
+    int GetRowCount();
+    int GetColumnCount();
+    QString GetStr(int r, int c);
+    QVariant GetSpecValue(int r, int c);
+
+private:
+    int PK;
+    QString KeyName;
+    struct stc_DaoDrugType{
+        int DrugTypeId;
+        QString DrugName;
+        QString UnitType;
+    };
+    vector<stc_DaoDrugType> m_Data;
+    static const int mc_ColumnCount = 4;
+};
+
 #endif // DNDAO_H
